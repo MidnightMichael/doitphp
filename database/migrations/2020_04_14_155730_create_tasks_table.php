@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTasksTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('tasks', function (Blueprint $table) {
+            $table->id('task_id');
+            $table->string('task_name');
+            $table->foreignId('task_owner')->default(0)->nullable();
+            $table->timestamps();
+
+            $table->foreign('task_owner')
+                ->references('task_list_id')
+                ->on('task_lists')
+                ->onDelete('set null');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('tasks', function(Blueprint $table) {
+            $table->dropForeign(['task_list_id']);
+        });
+        Schema::dropIfExists('tasks');
+    }
+}

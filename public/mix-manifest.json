@@ -1,0 +1,9 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/generaltaskinput.js": "/js/generaltaskinput.js",
+    "/js/listcreator.js": "/js/listcreator.js",
+    "/js/taskinput.js": "/js/taskinput.js",
+    "/js/tasklist.js": "/js/tasklist.js",
+    "/js/tasklistselector.js": "/js/tasklistselector.js"
+}
